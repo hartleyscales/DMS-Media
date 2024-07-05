@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Portfolio - DMS Media</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+            DMS Media
+        </div>
+        <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="static-hero">
+        <div class="hero-image" style="background-image: url('photo.avif');"></div>
+        <div class="static-text">
+            <h1>My Portfolio</h1>
+            <p>Explore My Collection of Aerial Photography and Videography</p>
+        </div>
+    </header>
+
+    <section class="portfolio">
+        <h2>Real Estate Photography</h2>
+        <div class="portfolio-container">
+            <button class="portfolio-nav prev" id="prev">&lt;</button>
+            <div class="portfolio-scroll">
+                <div class="portfolio-item">
+                    <img src="photo.avif" alt="Real Estate Photo 1">
+                </div>
+                <div class="portfolio-item">
+                    <img src="photo.avif" alt="Real Estate Photo 2">
+                </div>
+                <div class="portfolio-item">
+                    <video controls>
+                        <source src="video.webm" type="video/webm">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <!-- Add more items here -->
+            </div>
+            <button class="portfolio-nav next" id="next">&gt;</button>
+        </div>
+
+        <h2>Event Coverage</h2>
+        <div class="portfolio-container">
+            <button class="portfolio-nav prev" id="prev2">&lt;</button>
+            <div class="portfolio-scroll">
+                <div class="portfolio-item">
+                    <img src="photo.avif" alt="Event Photo 1">
+                </div>
+                <div class="portfolio-item">
+                    <img src="photo.avif" alt="Event Photo 2">
+                </div>
+                <div class="portfolio-item">
+                    <video controls>
+                        <source src="video.webm" type="video/webm">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <!-- Add more items here -->
+            </div>
+            <button class="portfolio-nav next" id="next2">&gt;</button>
+        </div>
+
+        <h2>Landscape Photography</h2>
+        <div class="portfolio-container">
+            <button class="portfolio-nav prev" id="prev3">&lt;</button>
+            <div class="portfolio-scroll">
+                <div class="portfolio-item">
+                    <img src="photo.avif" alt="Landscape Photo 1">
+                </div>
+                <div class="portfolio-item">
+                    <img src="photo.avif" alt="Landscape Photo 2">
+                </div>
+                <div class="portfolio-item">
+                    <video controls>
+                        <source src="video.webm" type="video/webm">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <!-- Add more items here -->
+            </div>
+            <button class="portfolio-nav next" id="next3">&gt;</button>
+        </div>
+    </section>
+
+    <!-- Modal for expanding images and videos -->
+    <div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-img">
+        <video controls class="modal-content" id="modal-video" style="display: none;">
+            <source src="video.webm" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
+        <p id="modal-location" class="modal-location">Location</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
