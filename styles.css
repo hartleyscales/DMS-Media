@@ -10,7 +10,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 2rem; /* Adjusted padding to align with logo */
+    padding: 0 2rem;
     background-color: rgba(255, 255, 255, 0.8);
     position: fixed;
     width: 100%;
@@ -18,22 +18,22 @@ body {
     z-index: 1000;
     transition: top 0.3s;
     box-sizing: border-box;
-    height: 80px; /* Adjusted the height of the navbar */
+    height: 80px;
 }
 
 .logo {
     display: flex;
     align-items: center;
     font-size: 2rem;
-    font-family: 'Helvetica', sans-serif; /* Changed to Helvetica */
+    font-family: 'Helvetica', sans-serif;
     font-weight: normal;
-    height: 100%; /* Make the logo the same height as the navbar */
+    height: 100%;
 }
 
 .logo img {
-    height: 100%; /* Make the logo the same height as the navbar */
+    height: 100%;
     margin-right: 10px;
-    object-fit: contain; /* Ensure the logo fits well within the height */
+    object-fit: contain;
 }
 
 .nav-links {
@@ -47,7 +47,7 @@ body {
 .nav-links a {
     color: #333;
     text-decoration: none;
-    font-family: Arial, sans-serif; /* Changed to a smoother font */
+    font-family: Arial, sans-serif;
 }
 
 .hamburger {
@@ -60,7 +60,7 @@ body {
     width: 25px;
     height: 3px;
     background-color: #333;
-    margin: 4px 0; /* Adjusted margin */
+    margin: 4px 0;
     transition: 0.3s;
 }
 
@@ -76,7 +76,7 @@ body {
 
 .hero {
     position: relative;
-    height: 100vh; /* Full height for home page hero section */
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -86,12 +86,12 @@ body {
 }
 
 .short-hero {
-    height: 50vh; /* Shorter height for services page hero section */
+    height: 50vh;
 }
 
 .static-hero {
     position: relative;
-    height: 50vh; /* Shorter height for services page hero section */
+    height: 50vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -141,7 +141,7 @@ body {
     font-family: 'Playfair Display', serif;
     overflow: hidden;
     white-space: nowrap;
-    animation: typing 2.5s steps(40, end); /* Increased typing speed */
+    animation: typing 2.5s steps(40, end);
 }
 
 @keyframes typing {
@@ -306,7 +306,7 @@ body {
 }
 
 .portfolio {
-    padding: 4rem 0; /* Removed side padding */
+    padding: 4rem 0;
     background-color: #f4f4f4;
 }
 
@@ -318,23 +318,22 @@ body {
 }
 
 .portfolio-container {
-    position: relative;
     display: flex;
-    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     gap: 2rem;
-    padding: 1rem 0;
-    margin: 0; /* Removed side margins */
 }
 
-.portfolio-scroll {
+.portfolio-grid {
     display: flex;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    gap: 2rem; /* Adjusted gap between portfolio items */
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
 }
 
 .portfolio-item {
-    flex: 0 0 auto;
+    flex: 1 1 calc(33.333% - 2rem);
     background: #fff;
     border-radius: 1rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -346,51 +345,11 @@ body {
 }
 
 .portfolio-item img, .portfolio-item video {
-    max-height: 300px; /* Set a maximum height for the items */
+    max-height: 300px;
     height: auto;
     width: auto;
     max-width: 100%;
     display: block;
-}
-
-.portfolio-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid #ccc;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 10;
-    transition: background 0.3s;
-    padding: 0; /* Ensure there is no padding */
-    box-sizing: border-box; /* Ensure the border is included in the size */
-}
-
-.portfolio-nav:hover {
-    background: rgba(255, 255, 255, 1);
-}
-
-.portfolio-nav.prev {
-    left: 0;
-}
-
-.portfolio-nav.next {
-    right: 0;
-}
-
-.portfolio-nav svg {
-    width: 24px;
-    height: 24px;
-}
-
-.portfolio-nav:disabled {
-    display: none;
 }
 
 .modal {
@@ -630,7 +589,7 @@ button:hover {
         left: 0;
         background-color: #fff;
         z-index: 1000;
-        overflow: hidden; /* Prevent scrolling */
+        overflow: hidden;
     }
 
     .nav-links.active {
@@ -639,7 +598,7 @@ button:hover {
     }
 
     .nav-links a {
-        font-size: 2rem; /* Increase the text size */
+        font-size: 2rem;
         margin: 1rem 0;
     }
 
@@ -677,11 +636,11 @@ button:hover {
     }
 
     .service img {
-        width: 100%; /* Increase image width on smaller screens */
+        width: 100%;
     }
 
     .portfolio-item img, .portfolio-item video {
-        max-height: 150px; /* Smaller images on small screen sizes */
+        max-height: 150px;
     }
 
     .banner-buttons {
