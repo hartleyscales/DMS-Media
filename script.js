@@ -1,5 +1,3 @@
-let lastScrollTop = 0;
-const navbar = document.querySelector('.navbar');
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 const closeBtn = document.createElement('div');
@@ -7,20 +5,6 @@ const closeBtn = document.createElement('div');
 closeBtn.classList.add('close-btn');
 closeBtn.innerHTML = '&times;';
 document.body.appendChild(closeBtn);
-
-window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (scrollTop > lastScrollTop) {
-        // Scroll down
-        navbar.style.top = '-80px'; // Adjust this value based on your navbar height
-    } else {
-        // Scroll up
-        navbar.style.top = '0';
-    }
-
-    lastScrollTop = scrollTop;
-});
 
 // Toggle nav
 hamburger.addEventListener('click', () => {
@@ -66,36 +50,3 @@ span.onclick = function () {
     modal.style.display = 'none';
     modalVideo.pause();
 };
-
-// Scroll navigation arrows functionality
-const scrollContainers = document.querySelectorAll('.portfolio-scroll');
-
-scrollContainers.forEach((container, index) => {
-    const prevButton = container.parentElement.querySelector('.prev');
-    const nextButton = container.parentElement.querySelector('.next');
-
-    prevButton.addEventListener('click', () => {
-        container.scrollBy({
-            left: -container.clientWidth,
-            behavior: 'smooth'
-        });
-    });
-
-    nextButton.addEventListener('click', () => {
-        container.scrollBy({
-            left: container.clientWidth,
-            behavior: 'smooth'
-        });
-    });
-
-    container.addEventListener('scroll', () => {
-        const scrollLeft = container.scrollLeft;
-        const maxScrollLeft = container.scrollWidth - container.clientWidth;
-
-        prevButton.style.display = scrollLeft > 0 ? 'flex' : 'none';
-        nextButton.style.display = scrollLeft < maxScrollLeft ? 'flex' : 'none';
-    });
-
-    // Initialize the buttons' visibility
-    container.dispatchEvent(new Event('scroll'));
-});
