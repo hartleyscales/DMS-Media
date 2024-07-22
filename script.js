@@ -16,6 +16,13 @@ hamburger.addEventListener('click', () => {
     }
 });
 
+document.getElementById('scroll-button').addEventListener('click', () => {
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth'
+    });
+});
+
 closeBtn.addEventListener('click', () => {
     navLinks.classList.remove('active');
     closeBtn.classList.remove('active');
