@@ -81,15 +81,6 @@ body {
     overflow: hidden;
 }
 
-#hero-video, #fallback-image {
-    object-fit: cover;
-    z-index: -1;
-}
-
-#fallback-image {
-    display: none;
-}
-
 .short-hero {
     height: 50vh;
 }
@@ -105,7 +96,7 @@ body {
     overflow: hidden;
 }
 
-#hero-video {
+#hero-video, #image {
     position: absolute;
     top: 0;
     left: 0;
@@ -592,12 +583,6 @@ button:hover {
 
 /* Media Queries for Responsiveness */
 @media (max-width: 768px) {
-    #hero-video {
-        display: none;
-    }
-    #fallback-image {
-        display: block;
-    }
     .navbar {
         justify-content: space-between;
     }
