@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,10 +27,13 @@
     </nav>
 
     <header class="hero">
-        <video autoplay muted loop id="hero-video">
-            <source src="declan5.mov" type="video/webm">
-            Your browser does not support the video tag.
-        </video>
+        <picture id="hero-media">
+            <source media="(max-width: 768px)" srcset="fallback.png">
+            <video autoplay muted loop id="hero-video" preload="auto">
+                <source src="declan5.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </picture>
         <div class="dim-overlay"></div>
         <div class="hero-text">
             <h1>Capture the Extraordinary</h1>
@@ -38,7 +42,6 @@
         </div>
     </header>
     
-
     <section class="about">
         <div class="about-content">
             <div class="about-image">
