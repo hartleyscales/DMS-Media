@@ -1,59 +1,75 @@
+// Hamburger menu functionality
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
-const closeBtn = document.createElement('div');
+const closeNavBtn = document.createElement('div');
 
-closeBtn.classList.add('close-btn');
-closeBtn.innerHTML = '&times;';
-document.body.appendChild(closeBtn);
+closeNavBtn.classList.add('close-btn');
+closeNavBtn.innerHTML = '&times;';
+document.body.appendChild(closeNavBtn);
 
-// Toggle nav
 hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('active');
-    closeBtn.classList.toggle('active');
-    document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto'; // Disable scrolling when nav is open
+    closeNavBtn.classList.toggle('active');
+    document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
     if (!navLinks.classList.contains('active')) {
         navLinks.style.animation = 'fadeOut 0.5s';
     }
 });
 
-document.getElementById('scroll-button').addEventListener('click', () => {
+closeNavBtn.addEventListener('click', () => {
+    navLinks.classList.remove('active');
+    closeNavBtn.classList.remove('active');
+    document.body.style.overflow = 'auto';
+    navLinks.style.animation = 'fadeOut 0.5s';
+});
+
+document.getElementById('scroll-button')?.addEventListener('click', () => {
     window.scrollTo({
         top: document.body.scrollHeight,
         behavior: 'smooth'
     });
 });
 
-closeBtn.addEventListener('click', () => {
-    navLinks.classList.remove('active');
-    closeBtn.classList.remove('active');
-    document.body.style.overflow = 'auto'; // Enable scrolling when nav is closed
-    navLinks.style.animation = 'fadeOut 0.5s';
-});
+// Modal functionality for portfolio items
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("DOM fully loaded and parsed");
+    
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modal-img");
+    const modalVideo = document.getElementById("modal-video");
+    const modalCloseBtn = document.getElementsByClassName("close")[0];
 
-// Modal functionality for expanding images and videos
-const modal = document.getElementById('modal');
-const modalImg = document.getElementById('modal-img');
-const modalVideo = document.getElementById('modal-video');
-const items = document.getElementsByClassName('portfolio-item');
+    const portfolioItems = document.querySelectorAll('.portfolio-item img, .portfolio-item video');
 
-for (let i = 0; i < items.length; i++) {
-    items[i].onclick = function () {
-        modal.style.display = 'block';
-        if (this.getElementsByTagName('img').length > 0) {
-            modalImg.src = this.getElementsByTagName('img')[0].src;
-            modalImg.style.display = 'block';
-            modalVideo.style.display = 'none';
-        } else if (this.getElementsByTagName('video').length > 0) {
-            modalVideo.src = this.getElementsByTagName('video')[0].getElementsByTagName('source')[0].src;
-            modalVideo.style.display = 'block';
-            modalImg.style.display = 'none';
+    portfolioItems.forEach(item => {
+        item.addEventListener('click', () => {
+            console.log('Item clicked:', item.tagName, item.src);
+            if (item.tagName.toLowerCase() === 'img') {
+                modal.style.display = "block";
+                modalImg.src = item.src;
+                modalImg.style.display = "block";
+                modalVideo.style.display = "none";
+            } else if (item.tagName.toLowerCase() === 'video') {
+                modal.style.display = "block";
+                modalVideo.querySelector('source').src = item.querySelector('source').src;
+                modalVideo.load();
+                modalImg.style.display = "none";
+                modalVideo.style.display = "block";
+            }
+        });
+    });
+
+    modalCloseBtn.onclick = function() {
+        console.log('Close button clicked');
+        modal.style.display = "none";
+        modalVideo.pause();
+    }
+
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            console.log('Window clicked, closing modal');
+            modal.style.display = "none";
+            modalVideo.pause();
         }
-    };
-}
-
-const span = document.getElementsByClassName('close')[0];
-
-span.onclick = function () {
-    modal.style.display = 'none';
-    modalVideo.pause();
-};
+    }
+});
