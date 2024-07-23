@@ -96,7 +96,7 @@ body {
     overflow: hidden;
 }
 
-#hero-video, #image {
+#hero-video {
     position: absolute;
     top: 0;
     left: 0;

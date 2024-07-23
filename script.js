@@ -74,23 +74,3 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Function to check screen size and switch media
-function switchMedia() {
-    const video = document.getElementById('hero-video');
-    const image = document.getElementById('image');
-    const mediaContainer = document.getElementById('media-container');
-
-    if (window.innerWidth <= 768) { // Adjust the width breakpoint as needed
-        video.style.display = 'none';
-        image.style.display = 'block';
-    } else {
-        video.style.display = 'block';
-        image.style.display = 'none';
-    }
-}
-
-// Initial check
-switchMedia();
-
-// Add event listener to check when the window is resized
-window.addEventListener('resize', switchMedia);
